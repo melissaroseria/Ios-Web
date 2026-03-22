@@ -1,0 +1,90 @@
+:root {
+    --ios-blue: #007AFF;
+    --ios-gray: #1C1C1E;
+    --ios-text-secondary: #8E8E93;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, sans-serif;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.screen { display: none; height: 100vh; flex-direction: column; }
+.screen.active { display: flex; }
+
+/* Header */
+.ios-header {
+    padding: 60px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+}
+.ios-header h1 { font-size: 34px; margin: 0; }
+.edit-btn, .compose-icon { color: var(--ios-blue); font-size: 17px; cursor: pointer; }
+
+/* Liste */
+.message-item {
+    display: flex;
+    padding: 12px 15px;
+    gap: 12px;
+    border-bottom: 0.5px solid #262629;
+}
+.avatar {
+    width: 45px; height: 45px;
+    background: linear-gradient(180deg, #5e5e5e, #3a3a3c);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600;
+}
+.item-body { flex: 1; }
+.item-top { display: flex; justify-content: space-between; margin-bottom: 2px; }
+.name { font-weight: 600; font-size: 17px; }
+.time { color: var(--ios-text-secondary); font-size: 15px; }
+.preview { color: var(--ios-text-secondary); margin: 0; font-size: 15px; }
+
+/* Chat Balonları */
+.bubble {
+    max-width: 70%;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-bottom: 4px;
+    font-size: 17px;
+    line-height: 1.3;
+}
+.bubble.sender {
+    background: var(--ios-blue);
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+.bubble.recipient {
+    background: #262629;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+/* Input Bar */
+.input-bar {
+    background: rgba(20,20,20,0.95);
+    backdrop-filter: blur(20px);
+    padding: 10px 15px 30px;
+    display: flex; align-items: center; gap: 15px;
+}
+.imessage-input {
+    flex: 1; background: #000; border: 1px solid #333;
+    border-radius: 20px; padding: 5px 5px 5px 12px;
+    display: flex; align-items: center;
+}
+.imessage-input input {
+    background: transparent; border: none; color: #fff; flex: 1; outline: none;
+}
+.imessage-input button {
+    background: var(--ios-blue); border: none; color: #fff;
+    width: 30px; height: 30px; border-radius: 50%;
+}
