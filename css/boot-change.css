@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('../app/run/assets/user/src/background.jpg'); /* Arka plan görseli */
+    background-size: cover;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.3); /* Glassmorphism etkisi için yarı saydam arka plan */
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 20px;
+    width: 350px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-icon img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Görseli tam yuvarlak yapar */
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: center;
+}
+
+input[type="password"]::placeholder {
+    color: #ddd;
+    font-size: 0.9em;
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    background-color: rgba(0, 123, 255, 0.8);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: rgba(0, 123, 255, 1);
+}

@@ -1,0 +1,145 @@
+body {
+    background: linear-gradient(to bottom right, #2e3440, #3b4252, #434c5e, #4c566a);
+    color: #eceff4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.cover-photo {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.image-frame {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    background: linear-gradient(to right, rgba(72, 84, 96, 0.6), rgba(255, 255, 255, 0.2));
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-image-container {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.7);
+    background: linear-gradient(to right, rgba(72, 84, 96, 0.6), rgba(255, 255, 255, 0.2));
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.change-section {
+    margin-top: 30px;
+}
+
+.change-frame {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h3 {
+    margin: 0 0 15px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.file-input {
+    display: none; /* Dosya seç alanını gizledik */
+}
+
+.file-label,
+.change-btn {
+    display: block; /* Alt alta hizalama */
+    background-color: rgba(72, 144, 220, 0.8);
+    color: white;
+    padding: 10px 5px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 10px auto; /* Butonları ortalıyoruz */
+    width: 70%; /* Genişlikleri eşit */
+    transition: background 0.3s;
+}
+
+.file-label:hover,
+.change-btn:hover {
+    background-color: rgba(72, 144, 220, 1);
+}
+
+.change-btn {
+    background-color: rgba(72, 220, 72, 0.8);
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.change-btn:hover {
+    background-color: rgba(72, 220, 72, 1);
+}
+
+.apply-btn {
+    background-color: rgba(255, 99, 71, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+    width: 100%; 
+    margin-top: 10px; 
+}
+
+.apply-btn:hover {
+    background-color: rgba(255, 99, 71, 1);
+}

@@ -1,0 +1,152 @@
+/* Üst Kısım (Navbar) */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box; /* Tüm padding ve margin hesaplamalarına dahil et */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Resmi ortalamak için */
+    margin-right: 15px;
+}
+
+.profile-pic {
+    width: 40px; /* Profil resminin genişliği */
+    height: 40px; /* Profil resminin yüksekliği */
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover; /* Resmin düzgün sığmasını sağlar */
+    border: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+
+/* Sayfanın genel görünümü */
+body {
+    font-family: Arial, sans-serif;
+    background: url('../app/run/assets/user/src/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow-x: hidden; /* Sağ kaymayı engellemek için */
+    padding-top: 60px; /* Navbar'ın üzerine çıkmaması için */
+}
+
+/* Log Liste Konteyner */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikal ortalama */
+    align-items: center; /* Yatay ortalama */
+    margin-top: 90px; /* Navbar'dan biraz daha uzak */
+    width: 90%; /* %90 genişlik */
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px); /* Blur etkisini sadece container'a uyguladık */
+}
+
+/* Log Listesi */
+.log-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Log Öğeleri */
+.log-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+.log-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.emoji {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.file-name {
+    flex-grow: 1;
+}
+
+/* Modal ve içerik */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    color: white;
+    backdrop-filter: blur(15px);
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    z-index: 100;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    padding-bottom: 60px; /* Footer ile çakışmayı engellemek için alt padding */
+}

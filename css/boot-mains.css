@@ -1,0 +1,461 @@
+/* ═══════════════════════════════════════════════════
+   boot-mains.css  —  iOS 15 Home Screen Stylesheet
+   ═══════════════════════════════════════════════════ */
+
+/* ── Google Fonts: SF Pro benzeri ── */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+/* ── CSS Değişkenleri ── */
+:root {
+  --blur-heavy   : blur(48px) saturate(200%);
+  --blur-medium  : blur(24px) saturate(180%);
+  --glass-white  : rgba(255,255,255,0.18);
+  --glass-border : rgba(255,255,255,0.30);
+  --text-primary : #ffffff;
+  --text-sub     : rgba(255,255,255,0.70);
+  --text-label   : rgba(255,255,255,0.92);
+  --dock-glass   : rgba(255,255,255,0.22);
+  --safe-top     : env(safe-area-inset-top,    44px);
+  --safe-bottom  : env(safe-area-inset-bottom, 20px);
+  --icon-size    : 68px;
+  --icon-radius  : 16px;
+  --dock-icon    : 56px;
+  --dock-radius  : 13px;
+}
+
+/* ── RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── BODY / WALLPAPER ── */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, 'Nunito', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Kullanıcının arka plan resmi */
+  background: url("../app/run/assets/user/src/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Resim yüklenemezse güzel bir fallback gradient */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(145deg, #1c1c3a 0%, #2d1b69 40%, #1a3a5c 75%, #0d2137 100%);
+}
+
+/* ── STATUS BAR ── */
+.status-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: calc(var(--safe-top) + 20px);
+  padding: var(--safe-top) 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-time {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* Sinyal çubukları */
+.signal-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+.signal-bars span {
+  display: block;
+  width: 3px;
+  background: white;
+  border-radius: 1px;
+}
+.signal-bars span:nth-child(1) { height: 30%; }
+.signal-bars span:nth-child(2) { height: 55%; }
+.signal-bars span:nth-child(3) { height: 78%; }
+.signal-bars span:nth-child(4) { height: 100%; }
+
+/* WiFi */
+.wifi-icon {
+  width: 16px;
+  height: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wifi-icon::before,
+.wifi-icon::after,
+.wifi-dot {
+  content: '';
+  position: absolute;
+  border: 2px solid white;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 50% 50% 0 0;
+}
+.wifi-icon::before { width: 16px; height: 10px; top: 0; }
+.wifi-icon::after  { width: 10px; height: 6px;  top: 4px; }
+.wifi-dot          { width: 4px; height: 4px; background: white; border: none; border-radius: 50%; bottom: 0; }
+
+/* Batarya */
+.battery {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+.battery-shell {
+  width: 26px; height: 13px;
+  border: 1.5px solid rgba(255,255,255,0.75);
+  border-radius: 3.5px;
+  padding: 2px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.battery-shell::after {
+  content: '';
+  position: absolute;
+  right: -5px; top: 50%;
+  transform: translateY(-50%);
+  width: 3px; height: 6px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 0 2px 2px 0;
+}
+.battery-fill {
+  height: 100%;
+  width: 72%;
+  background: #30d158;
+  border-radius: 2px;
+}
+
+/* ── LOCK CLOCK ── */
+.lock-clock {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding-top: calc(var(--safe-top) + 52px);
+  padding-bottom: 14px;
+}
+.lock-time {
+  font-size: 80px;
+  font-weight: 200;
+  color: white;
+  letter-spacing: -5px;
+  line-height: 1;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.35);
+}
+.lock-date {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text-sub);
+  margin-top: 6px;
+  letter-spacing: 0.1px;
+}
+
+/* ── HOME SCREEN SCROLL WRAPPER ── */
+.home-screen-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 150px;
+}
+.home-screen-wrap::-webkit-scrollbar { display: none; }
+
+/* ── SEARCH BAR ── */
+.ios-search {
+  max-width: 390px;
+  margin: 0 auto 18px;
+  padding: 0 20px;
+}
+.ios-search-inner {
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: var(--blur-medium);
+  -webkit-backdrop-filter: var(--blur-medium);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+}
+.ios-search-inner svg { opacity: 0.6; flex-shrink: 0; }
+.ios-search-inner span { font-size: 15px; color: rgba(255,255,255,0.5); }
+
+/* ── APP GRID ── */
+.home-screen {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 22px 4px !important;
+  padding: 0 18px !important;
+  max-width: 430px;
+  margin: 0 auto;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* ── UYGULAMA İKONU ── */
+.app-icon {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  text-decoration: none;
+  /* Açılış animasyonu — PHP'de nth-child delay ile */
+  animation: ios-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes ios-pop {
+  from { opacity: 0; transform: scale(0.45) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* ── İkon kabuk (renkli arka plan + ikon) ── */
+.icon-shell {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: var(--icon-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 4px 18px rgba(0,0,0,0.38),
+    0 1px 0   rgba(255,255,255,0.22) inset;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.12s ease;
+  /* Hafif iç parlaklık — iOS'taki cam efekti */
+  background-clip: padding-box;
+}
+
+/* Üst kenar parlaması */
+.icon-shell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(160deg, rgba(255,255,255,0.18) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Basış efekti */
+.app-icon:active .icon-shell {
+  transform: scale(0.87);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* ── İkon resmi ── */
+.app-icon img {
+  width: 62% !important;
+  height: 62% !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 0 !important;
+}
+
+
+/* İkon label */
+.app-icon span {
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: var(--text-label) !important;
+  text-align: center !important;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.65) !important;
+  letter-spacing: 0.05px;
+  max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── PAGE DOTS ── */
+.page-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 18px 0 8px;
+}
+.page-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  transition: all 0.25s ease;
+}
+.page-dot.active {
+  width: 8px; height: 8px;
+  background: white;
+}
+
+/* ══════════════════════════════
+   DOCK / BOTTOM MENU  (iOS 15)
+   ══════════════════════════════ */
+.bottom-menu {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 100;
+  padding: 10px 20px calc(var(--safe-bottom) + 10px) !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.dock-pill {
+  width: 100%;
+  max-width: 380px;
+  background: var(--dock-glass);
+  backdrop-filter: var(--blur-heavy);
+  -webkit-backdrop-filter: var(--blur-heavy);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.35),
+    0 1px 0 rgba(255,255,255,0.25) inset;
+}
+
+.bottom-menu-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.bottom-menu-item img {
+  width: 62% !important;
+  height: 62% !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 0 !important;
+  transition: none;
+}
+
+/* Dock ikon kabuğu */
+.bottom-menu-item .icon-shell {
+  width: var(--dock-icon);
+  height: var(--dock-icon);
+  border-radius: var(--dock-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 3px 14px rgba(0,0,0,0.35),
+    0 1px 0 rgba(255,255,255,0.18) inset;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bottom-menu-item .icon-shell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(160deg, rgba(255,255,255,0.16) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bottom-menu-item:active .icon-shell {
+  transform: scale(0.86);
+}
+
+.bottom-menu-item span {
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  color: var(--text-sub) !important;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Aktif nokta */
+.dock-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.80);
+}
+
+/* ── HOME INDICATOR ── */
+.home-indicator {
+  position: fixed;
+  bottom: 7px;
+  left: 50%; transform: translateX(-50%);
+  width: 130px; height: 5px;
+  background: rgba(255,255,255,0.42);
+  border-radius: 3px;
+  z-index: 300;
+}
+
+/* ── Animasyon gecikmeleri (grid sırası) ── */
+.app-icon:nth-child(1)  { animation-delay: 0.04s; }
+.app-icon:nth-child(2)  { animation-delay: 0.08s; }
+.app-icon:nth-child(3)  { animation-delay: 0.12s; }
+.app-icon:nth-child(4)  { animation-delay: 0.16s; }
+.app-icon:nth-child(5)  { animation-delay: 0.20s; }
+.app-icon:nth-child(6)  { animation-delay: 0.24s; }
+.app-icon:nth-child(7)  { animation-delay: 0.28s; }
+.app-icon:nth-child(8)  { animation-delay: 0.32s; }
+.app-icon:nth-child(9)  { animation-delay: 0.36s; }
+.app-icon:nth-child(10) { animation-delay: 0.40s; }
+.app-icon:nth-child(11) { animation-delay: 0.44s; }
+.app-icon:nth-child(12) { animation-delay: 0.48s; }
+
+/* ── Hover (masaüstü) ── */
+@media (hover: hover) {
+  .app-icon:hover .icon-shell {
+    transform: scale(1.06);
+  }
+  .bottom-menu-item:hover .icon-shell {
+    transform: scale(1.06);
+  }
+}

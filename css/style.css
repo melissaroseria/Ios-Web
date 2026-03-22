@@ -1,0 +1,132 @@
+/* Genel Yapı ve Arka Plan */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    background: url('../app/run/assets/user/src/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* iOS Cam Efekti */
+.overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lock-icon {
+    font-size: 24px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+/* Profil Resmi */
+.profile-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #FF007F;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+}
+
+/* Şifre Noktaları */
+.passcode-dots {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 50px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.dot.active {
+    background: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Numerik Tuş Takımı */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 15px 25px;
+}
+
+.key {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.1s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.key:active {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.key span {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.key small {
+    font-size: 10px;
+    font-weight: 600;
+    margin-top: -4px;
+    letter-spacing: 1px;
+}
+
+/* Hata Mesajı */
+.error-message {
+    margin-top: 25px;
+    color: #ff4747;
+    font-weight: 500;
+    display: none;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.footer-action {
+    position: absolute;
+    bottom: 50px;
+    font-size: 17px;
+    font-weight: 400;
+    opacity: 0.8;
+}

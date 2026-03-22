@@ -1,0 +1,78 @@
+/* Ana Body */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('../app/run/assets/user/src/background.jpg'); /* Arka plan yolu doğru olduğu varsayılarak */
+    background-size: cover;
+    background-position: center;
+}
+
+/* İçerik Kutusu */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15); /* Daha fazla şeffaflık */
+    backdrop-filter: blur(15px); /* Artırılmış bulanıklık */
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Başlık Bölümü */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Yuvarlak profil resmi */
+    margin-right: 10px;
+}
+
+/* Başlık */
+h2 {
+    font-size: 1.5em;
+    color: #fff; /* Beyaz renkte başlık */
+}
+
+/* Giriş Alanları */
+input[type="text"], input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Şeffaf beyaz sınır */
+    background: rgba(255, 255, 255, 0.1); /* Şeffaf arka plan */
+    color: #fff; /* Beyaz yazı rengi */
+    border-radius: 5px;
+    outline: none;
+    caret-color: #007bff; /* Mavi imleç */
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Beyaz şeffaf placeholder */
+}
+
+/* Giriş Butonu */
+button {
+    width: 80%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
