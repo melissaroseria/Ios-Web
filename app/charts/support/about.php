@@ -207,7 +207,7 @@ html, body {
 
 <!-- NAV -->
 <div class="nav-bar">
-  <a class="nav-back" href="../main.php">
+  <a class="nav-back" href="../config.php">
     <i class="fas fa-chevron-left"></i> Ayarlar
   </a>
   <span class="nav-title">Hakkında</span>
@@ -409,36 +409,6 @@ html, body {
     </button>
     <div class="faq-answer">
       Baskıcı ebeveynlerin gazabından kurtulmak ve kendini burada rahat hissedebileceğin bir yer sunmak.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">
-      Hakkımda veri toplayabilir mi?
-      <i class="fas fa-chevron-right faq-chevron"></i>
-    </button>
-    <div class="faq-answer">
-      Hakkınızda veri toplamaz. Kendi havuz mantığı mevcuttur, ancak veri kaybı yaşamamak için APK klonlayıcı ile yedekleyiniz.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">
-      Ücret veya abonelik var mı?
-      <i class="fas fa-chevron-right faq-chevron"></i>
-    </button>
-    <div class="faq-answer">
-      Hayır, tüm özellikler ücretsizdir. Abonelik zorunluluğu yoktur, ancak bağış yapmak tamamen size kalmış bir konudur.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">
-      Güvenli mi? İzleyici var mı?
-      <i class="fas fa-chevron-right faq-chevron"></i>
-    </button>
-    <div class="faq-answer">
-      Hayır, izleyici veya güvenlik mensubu yoktur. Telegram kanalımızdan kaynak alarak kafanıza göre modlayabilirsiniz.
     </div>
   </div>
 
